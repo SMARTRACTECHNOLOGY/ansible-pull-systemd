@@ -1,0 +1,11 @@
+[Unit]
+Description=Run ansible-pull at first boot to apply environment configuration
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+ExecStart=/usr/sbin/ansible-pull-systemd
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+. /etc/ansible-pull-systemd.conf
+
+runuser -l ${USER} -c 'ansible-pull -b -v -C ${CHECKOUT} -i localhost, -U ${URL} --private-key==${PRIVATE_KEY_FILE} --accept-host-key --purge ${EXTRA_ARGS}'
+
+systemctl disable ansible-pull-systemd.service
