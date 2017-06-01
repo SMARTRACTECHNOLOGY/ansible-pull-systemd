@@ -2,6 +2,11 @@
 
 . /etc/ansible-pull-systemd.conf
 
-runuser -l ${USER} -c 'ansible-pull -b -v -C ${CHECKOUT} -i localhost, -U ${URL} --private-key==${PRIVATE_KEY_FILE} --accept-host-key --purge ${EXTRA_ARGS}'
+TEMP=$(mktemp --tmpdir ansible-pull-tmp.XXXXXXXXXX)
+
+runuser -l ${USER} -c "ansible-pull -U ${URL} -v -C ${CHECKOUT} -c local --private-key=${PRIVATE_KEY_FILE} --directory=${TEMP} --accept-host-key --purge ${EXTRA_ARGS}"
+
+# There is a bug preventing purging the folder properly on become.
+rm -rf ${TEMP}
 
 systemctl disable ansible-pull-systemd.service
