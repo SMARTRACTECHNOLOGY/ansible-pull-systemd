@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+set -e
+
 . /etc/ansible-pull-systemd.conf
 
-TEMP="$(mktemp --tmpdir ansible-pull-tmp.XXXXXXXXXX)/$(uuidgen)"
+TEMP="/tmp/$(uuidgen)"
 
 runuser -l ${USER} -c "ansible-pull -U ${URL} -v -C ${CHECKOUT} -c local --private-key=${PRIVATE_KEY_FILE} --directory=${TEMP} --accept-host-key --purge ${EXTRA_ARGS}"
 

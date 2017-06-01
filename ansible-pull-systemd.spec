@@ -53,6 +53,9 @@ install -p -m 644 %{SOURCE20} %{buildroot}/%{_sysconfdir}
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jun 1 2017 Robert Van Voorhees <rcvanvo@gmail.com> - 1.0.2-1
+- Resolve dumb error with not making parent directory.
+
 * Thu Jun 1 2017 Robert Van Voorhees <rcvanvo@gmail.com> - 1.0.1-1
 - Change the directory due to issues with purge in ansible-pull.
 
