@@ -1,6 +1,6 @@
 %{?systemd_requires}
 Name:           ansible-pull-systemd
-Version:        1.0.1
+Version:        1.0.2
 Release:        1
 Summary:        Unit file for starting ansible on first boot.
 
