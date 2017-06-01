@@ -1,6 +1,6 @@
 %{?systemd_requires}
 Name:           ansible-pull-systemd
-Version:        1
+Version:        1.0.1
 Release:        1
 Summary:        Unit file for starting ansible on first boot.
 
@@ -53,5 +53,8 @@ install -p -m 644 %{SOURCE20} %{buildroot}/%{_sysconfdir}
 %systemd_postun_with_restart %{name}.service
 
 %changelog
+* Thu Jun 1 2017 Robert Van Voorhees <rcvanvo@gmail.com> - 1.0.1-1
+- Change the directory due to issues with purge in ansible-pull.
+
 * Wed May 31 2017 Robert Van Voorhees <rcvanvo@gmail.com> - 1-1
 - Initial RPM release
