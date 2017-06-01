@@ -13,7 +13,7 @@ Requires:       ansible
 BuildRequires:  systemd
 
 URL:            https://github.com/smartractechnology
-Source0:        %{name}@.service
+Source0:        %{name}.service
 Source10:       %{name}
 Source20:       %{name}.conf
 BuildArch:      noarch
@@ -38,7 +38,7 @@ install -p -m 644 %{SOURCE20} %{buildroot}/%{_sysconfdir}
 
 %files
 %config(noreplace) %{_sysconfdir}/%{name}.conf
-%attr(0644, root, root) %{_unitdir}/%{name}@.service
+%attr(0644, root, root) %{_unitdir}/%{name}.service
 %attr(0754, root, root) %{_sbindir}/%{name}
 
 %pre
